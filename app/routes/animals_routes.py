@@ -130,9 +130,11 @@ def delete_animal(animal_id):
     """
     result = AnimalsService.delete_animal(animal_id)
     if result["status"] == "success":
+        flash(result["message"], "error") 
         return {"status": "success", "message": result["message"]}, 200
     else:
         return {"status": "error", "message": result["message"]}, 400
+    
 
 
 @animals_routes.route('/update/<int:animal_id>', methods=['GET', 'POST'])

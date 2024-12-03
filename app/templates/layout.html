@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Titre par défaut{% endblock %}</title>
-    <link rel="stylesheet" href="{{url_for("static", filename='css/style.css')}} ">
+    <!-- <link rel="stylesheet" href="{{url_for("static", filename='css/style.css')}} "> -->
+    <link rel="stylesheet" href="{{url_for("static", filename='css/main.css')}} ">
 </head>
 
 <body>
     <header>
-        <a href="/"><h1>Mon Gestionnaire d’Animaux</h1></a>
         <nav>
-            <a href="{{ url_for('animals_routes.register') }}">Ajouter un Animal</a> |
-            <a href="{{ url_for('animals_routes.list') }}">Liste des Animaux</a>
+            <h1>Adoption d'Animaux</h1>
+            <div class="nav-links">
+                <a href="/" class="{% if request.endpoint == 'home' %}active{% endif %}">Accueil</a>
+                <a href="{{ url_for('animals_routes.list') }}" class="{% if request.endpoint == 'animals_routes.list' %}active{% endif %}">Liste des Animaux</a>
+                <a href="{{ url_for('animals_routes.register') }}" class="{% if request.endpoint == 'animals_routes.register' %}active{% endif %}">Mettre en Adoption</a>
+            </div>
         </nav>
     </header>
     
@@ -22,11 +26,45 @@
         {% endblock %}
     </main>
 
-    <footer>
-        &copy; 2024 Mon Application Flask. Tous droits réservés.
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Adoption d'Animaux</h3>
+                <p>Trouvez un foyer chaleureux pour chaque animal ou adoptez votre prochain compagnon.</p>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Liens Rapides</h4>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="{{ url_for('animals_routes.list') }}">Liste des Animaux</a></li>
+                    <li><a href="{{ url_for('animals_routes.register') }}">Mettre en Adoption</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">facebook</a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">twitter</i></a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Adoption d'Animaux. Tous droits réservés.
+        </div>
     </footer>
 
     <script src="{{ url_for('static', filename='scripts/admin.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/form-handler.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/validation.js') }}"></script> 
+
+
+    <!-- <script src="{{ url_for('static', filename='scripts/data.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+    -->
 
 </body>
 </html>

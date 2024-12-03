@@ -18,11 +18,15 @@
 
 <!-- Formulaire de recherche -->
 <form method="GET" class="champ-recherche" action="{{ url_for('animals_routes.list') }}">
-    <label for="query">Rechercher :</label>
-    <input type="text" id="query" name="query" placeholder="Entrez un mot-clé..." value="{{ query }}">
-    <button type="submit">Rechercher</button>
+    <section id="search" class="page active">
+        <div class="search-container">
+            <input type="text" id="query" name="query" placeholder="Entrez un mot-clé...">
+            <button type="submit" id="search-button">Rechercher</button>
+        </div>
+        <!-- <div id="search-results" class="pets-grid"></div> -->
+    </section>
     {% if query %}
-        <a href="{{ url_for('animals_routes.list') }}">Réinitialiser</a>
+        <a id="search-button" href="{{ url_for('animals_routes.list') }}">Réinitialiser</a>
     {% endif %}
 </form>
 
@@ -31,30 +35,22 @@
 
 <!-- Résultats de la liste -->
 {% if animals %}
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Espèce</th>
-            <th>Race</th>
-            <th>Email</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for animal in animals %}
-        <tr>
-            <td>{{ animal['id'] }}</td>
-            <td>{{ animal['nom'] }}</td>
-            <td>{{ animal['espece'] }}</td>
-            <td>{{ animal['race'] }}</td>
-            <td>{{ animal['email'] }}</td>
-            <td>{{ animal['description'] }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+
+<div class="pets-grid">
+    {% for animal in animals %}
+    <div class="pet-card">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="Luna, un chat Siamois">
+        <h3>{{animal.nom}}</h3>
+        <p><strong>Espèce :</strong> {{ animal.espece }}</p>
+        <p><strong>Race :</strong> {{ animal.race }}</p>
+        <p><strong>Âge :</strong> {{ animal.age }}</p>
+        <p><strong>Description :</strong> {{ animal.description[:100] }}...</p>
+        <p><strong>Email :</strong> {{ animal.email }}</p>
+        <p><strong>Adresse :</strong> 123 Rue Principale, Montréal, H2X 1A1</p>
+        <button class="contact-button">Contacter le propriétaire</button>
+    </div>
+    {% endfor %}
+</div>
 
 <!-- Pagination -->
 <div class="pagination">

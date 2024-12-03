@@ -7,7 +7,7 @@ from app.models import Animals
 # Configuration du journal
 logging.basicConfig(
     filename='app.log',
-    level=logging.INFO,  # Inclut INFO, WARNING, ERROR
+    level=logging.INFO, 
     format='%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
 )
 
