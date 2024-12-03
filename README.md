@@ -128,7 +128,7 @@ INF3190FLASK/
    ```
    L'application sera accessible à l'adresse [http://127.0.0.1:5000](http://127.0.0.1:5000).
 
-## **Problème : Le Module Flask n'est pas Reconnu**
+## ⚠️ **Problème : Le Module Flask n'est pas Reconnu**
 
 Si vous rencontrez une erreur indiquant que le module Flask n'est pas reconnu dans votre projet, suivez ces étapes pour résoudre le problème en configurant l'interpréteur Python correct :
 
