@@ -18,11 +18,15 @@
 
 <!-- Formulaire de recherche -->
 <form method="GET" class="champ-recherche" action="{{ url_for('animals_routes.list') }}">
-    <label for="query">Rechercher :</label>
-    <input type="text" id="query" name="query" placeholder="Entrez un mot-clé..." value="{{ query }}">
-    <button type="submit">Rechercher</button>
+    <section id="search" class="page active">
+        <div class="search-container">
+            <input type="text" id="query" name="query" placeholder="Entrez un mot-clé...">
+            <button type="submit" id="search-button">Rechercher</button>
+        </div>
+        <!-- <div id="search-results" class="pets-grid"></div> -->
+    </section>
     {% if query %}
-        <a href="{{ url_for('animals_routes.list') }}">Réinitialiser</a>
+        <a id="search-button" href="{{ url_for('animals_routes.list') }}">Réinitialiser</a>
     {% endif %}
 </form>
 
@@ -31,30 +35,21 @@
 
 <!-- Résultats de la liste -->
 {% if animals %}
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Espèce</th>
-            <th>Race</th>
-            <th>Email</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for animal in animals %}
-        <tr>
-            <td>{{ animal['id'] }}</td>
-            <td>{{ animal['nom'] }}</td>
-            <td>{{ animal['espece'] }}</td>
-            <td>{{ animal['race'] }}</td>
-            <td>{{ animal['email'] }}</td>
-            <td>{{ animal['description'] }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div class="pets-grid">
+    {% for animal in animals %}
+    <div class="pet-card" 
+         data-espece="{{ animal.espece }}" 
+         data-race="{{ animal.race }}" 
+         data-age="{{ animal.age }}" 
+         data-email="{{ animal.email }}" 
+         data-adresse="{{ animal.adresse }}">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="{{ animal.nom }}">
+        <h3>{{ animal.nom }}</h3>
+        <p>Description : {{ animal.description[:100] }}...</p>
+        <button class="contact-button">voir les details...</button>
+    </div>
+    {% endfor %}
+</div>     
 
 <!-- Pagination -->
 <div class="pagination">
@@ -69,4 +64,17 @@
 {% else %}
 <p>Aucun animal trouvé.</p>
 {% endif %}
+
+<!-- Modal Structure -->
+<div id="modal-container" class="modal-container">
+    <div class="modal-content">
+        <button class="close-modal">×</button>
+        <h2 id="modal-title">Détails de l'Animal</h2>
+        <div id="modal-details">
+            <!-- Les détails de l'animal seront injectés ici -->
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

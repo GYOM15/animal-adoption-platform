@@ -202,9 +202,10 @@ class Animals:
                 WHERE nom LIKE ?
                 OR espece LIKE ?
                 OR email LIKE ?
+                OR race LIKE ?
                 OR description LIKE ?
                 LIMIT ? OFFSET ?
-            """, (search_query, search_query, search_query, search_query, per_page, offset))
+            """, (search_query, search_query, search_query, search_query, search_query, per_page, offset))
             rows = cursor.fetchall()
             return [dict(row) for row in rows]
         except Exception as e:

@@ -15,38 +15,64 @@
     {% endif %}
 {% endwith %}
 
-<h1>Modifier l'Animal</h1>
+<section id="edit-pet" class="page active">
+    <h2>Modifier les Informations de l'Animal</h2>
+    <form method="post" class="adoption-form" action="{{ url_for('animals_routes.update_animal', animal_id=animal['id']) }}">
+        <div class="form-group">
+            <label for="name">Nom de l'animal*</label>
+            <input type="text" id="name" name="nom" value="{{ animal['nom'] }}" required>
+            <span class="error" id="name-error"></span>
+        </div>
 
-<!-- Formulaire de mise à jour -->
-<form class="formulaire" method="post" action="{{ url_for('animals_routes.update_animal', animal_id=animal['id']) }}">
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" value="{{ animal['nom'] }}" required>
+        <div class="form-group">
+            <label for="species">Espèce*</label>
+            <input type="text" id="species" name="espece" value="{{ animal['espece'] }}" required>
+            <span class="error" id="species-error"></span>
+        </div>
 
-    <label for="espece">Espèce :</label>
-    <input type="text" id="espece" name="espece" value="{{ animal['espece'] }}" required>
+        <div class="form-group">
+            <label for="breed">Race*</label>
+            <input type="text" id="breed" name="race" value="{{ animal['race'] }}" required>
+            <span class="error" id="breed-error"></span>
+        </div>
 
-    <label for="race">Race :</label>
-    <input type="text" id="race" name="race" value="{{ animal['race'] }}" required>
+        <div class="form-group">
+            <label for="age">Âge*</label>
+            <input type="number" id="age" name="age" value="{{ animal['age'] }}" min="0" max="30" required>
+            <span class="error" id="age-error"></span>
+        </div>
 
-    <label for="age">Âge :</label>
-    <input type="number" id="age" name="age" value="{{ animal['age'] }}" min="1" required>
+        <div class="form-group">
+            <label for="description">Description*</label>
+            <textarea id="description" name="description" required>{{ animal['description'] }}</textarea>
+            <span class="error" id="description-error"></span>
+        </div>
 
-    <label for="description">Description :</label>
-    <textarea id="description" name="description" required>{{ animal['description'] }}</textarea>
+        <div class="form-group">
+            <label for="ownerEmail">Courriel du propriétaire*</label>
+            <input type="email" id="ownerEmail" name="email" value="{{ animal['email'] }}" required>
+            <span class="error" id="ownerEmail-error"></span>
+        </div>
 
-    <label for="email">Email :</label>
-    <input type="email" id="email" name="email" value="{{ animal['email'] }}" required>
+        <div class="form-group">
+            <label for="street">Adresse civique*</label>
+            <input type="text" id="street" name="adresse" value="{{ animal['adresse'] }}" required>
+            <span class="error" id="street-error"></span>
+        </div>
 
-    <label for="adresse">Adresse :</label>
-    <input type="text" id="adresse" name="adresse" value="{{ animal['adresse'] }}" required>
+        <div class="form-group">
+            <label for="city">Ville*</label>
+            <input type="text" id="city" name="ville" value="{{ animal['ville'] }}" required>
+            <span class="error" id="city-error"></span>
+        </div>
 
-    <label for="ville">Ville :</label>
-    <input type="text" id="ville" name="ville" value="{{ animal['ville'] }}" required>
-
-    <label for="code_postal">Code Postal :</label>
-    <input type="text" id="code_postal" name="code_postal" value="{{ animal['code_postal'] }}" required>
-
-    <button type="submit">Mettre à Jour</button>
-</form>
-
+        <div class="form-group">
+            <label for="postalCode">Code postal*</label>
+            <input type="text" id="postalCode" name="code_postal" value="{{ animal['code_postal'] }}" placeholder="A1A 1A1" required>
+            <span class="error" id="postalCode-error"></span>
+        </div>
+        
+        <button type="submit">Mettre à Jour</button>
+    </form>
+</section>
 {% endblock %}

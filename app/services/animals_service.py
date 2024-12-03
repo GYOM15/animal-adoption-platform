@@ -86,7 +86,6 @@ class AnimalsService:
             return {"status": "error", "message": AnimalsService.ERROR_MESSAGES["internal_error"]}
 
 
-
     @staticmethod
     def update_animal(animal_id, form_data):
         """Met à jour les informations d'un animal."""

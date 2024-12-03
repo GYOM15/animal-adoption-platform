@@ -3,20 +3,72 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-<h2>Animaux récents</h2>
+
+<section class="hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Bienvenue dans le Monde des Animaux</h1>
+            <p>Trouvez votre compagnon idéal ou mettez un animal en adoption. Faites partie de notre communauté aujourd'hui.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('animals_routes.list') }}" class="hero-btn">Explorer les Animaux</a>
+                <a href="{{ url_for('animals_routes.register') }}" class="hero-btn hero-btn-outline">Ajouter un Animal</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<h2 class="home-title">Animaux récents</h2>
 
 {% if animals %}
-<div class="cards">
+<div class="pets-grid">
     {% for animal in animals %}
-    <div class="card">
-        <h3>{{ animal.nom }}</h3>
-        <p><strong>Espèce :</strong> {{ animal.espece }}</p>
-        <p><strong>Email :</strong> {{ animal.email }}</p>
-        <p><strong>Description :</strong> {{ animal.description[:100] }}...</p>
+    <div class="pet-card">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="Luna, un chat Siamois">
+        <div>
+            <h3>{{animal.nom}}</h3>
+            <p>{{ animal.description[:100] }}...</p>
+        </div>
+        <button class="contact-button">Contacter le propriétaire</button>
     </div>
     {% endfor %}
 </div>
 {% else %}
 <p>Aucun animal trouvé.</p>
 {% endif %}
+
+<!-- Section Mission et Valeurs -->
+<section class="mission-section">
+    <div class="mission-content">
+        <h2>Notre Mission</h2>
+        <p>
+            Chez <span class="mission-bold">Adoption d'Animaux</span>, notre mission est de fournir un foyer aimant à chaque animal. 
+            Nous croyons que chaque vie compte et nous nous efforçons de construire un pont entre les animaux sans abri 
+            et les familles prêtes à les accueillir.
+        </p>
+    </div>
+    <div class="mission-image">
+        <img src="https://s1.1zoom.me/big0/667/Cats_Kittens_White_Glance_532541_1063x1024.jpg" alt="Chat dans le jardin">
+    </div>
+</section>
+
+<!-- Section Rejoindre la Communauté -->
+<section class="community-section">
+    <h2>Rejoignez Notre Communauté</h2>
+    <p>Faites partie d'une communauté engagée et passionnée par le bien-être animal.</p>
+    <div class="community-cards">
+        <div class="community-card">
+            <h3>Adoptez un Animal</h3>
+            <p>Offrez un foyer chaleureux et une nouvelle chance à un animal dans le besoin.</p>
+        </div>
+        <div class="community-card">
+            <h3>Devenez Bénévole</h3>
+            <p>Contribuez à notre cause en offrant votre temps et vos compétences.</p>
+        </div>
+        <div class="community-card">
+            <h3>Soutenez Notre Mission</h3>
+            <p>Faites un don ou sponsorisez un animal pour un impact direct et positif.</p>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

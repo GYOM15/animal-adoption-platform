@@ -110,6 +110,7 @@ def list():
         return render_template('list.html', animals=[], page=1, total_pages=0, query=query)
 
 
+
 @animals_routes.route('/admin', methods=['GET'])
 def admin_panel():
     """
@@ -123,6 +124,8 @@ def admin_panel():
         return render_template('admin.html', animals=[])
 
 
+
+
 @animals_routes.route('/delete/<int:animal_id>', methods=['POST'])
 def delete_animal(animal_id):
     """
@@ -130,9 +133,13 @@ def delete_animal(animal_id):
     """
     result = AnimalsService.delete_animal(animal_id)
     if result["status"] == "success":
+        flash(result["message"], "error") 
         return {"status": "success", "message": result["message"]}, 200
     else:
         return {"status": "error", "message": result["message"]}, 400
+    
+
+
 
 
 @animals_routes.route('/update/<int:animal_id>', methods=['GET', 'POST'])
