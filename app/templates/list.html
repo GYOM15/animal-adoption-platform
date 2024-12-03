@@ -35,22 +35,21 @@
 
 <!-- Résultats de la liste -->
 {% if animals %}
-
 <div class="pets-grid">
     {% for animal in animals %}
-    <div class="pet-card">
-        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="Luna, un chat Siamois">
-        <h3>{{animal.nom}}</h3>
-        <p><strong>Espèce :</strong> {{ animal.espece }}</p>
-        <p><strong>Race :</strong> {{ animal.race }}</p>
-        <p><strong>Âge :</strong> {{ animal.age }}</p>
-        <p><strong>Description :</strong> {{ animal.description[:100] }}...</p>
-        <p><strong>Email :</strong> {{ animal.email }}</p>
-        <p><strong>Adresse :</strong> 123 Rue Principale, Montréal, H2X 1A1</p>
-        <button class="contact-button">Contacter le propriétaire</button>
+    <div class="pet-card" 
+         data-espece="{{ animal.espece }}" 
+         data-race="{{ animal.race }}" 
+         data-age="{{ animal.age }}" 
+         data-email="{{ animal.email }}" 
+         data-adresse="{{ animal.adresse }}">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="{{ animal.nom }}">
+        <h3>{{ animal.nom }}</h3>
+        <p>Description : {{ animal.description[:100] }}...</p>
+        <button class="contact-button">voir les details...</button>
     </div>
     {% endfor %}
-</div>
+</div>     
 
 <!-- Pagination -->
 <div class="pagination">
@@ -65,4 +64,17 @@
 {% else %}
 <p>Aucun animal trouvé.</p>
 {% endif %}
+
+<!-- Modal Structure -->
+<div id="modal-container" class="modal-container">
+    <div class="modal-content">
+        <button class="close-modal">×</button>
+        <h2 id="modal-title">Détails de l'Animal</h2>
+        <div id="modal-details">
+            <!-- Les détails de l'animal seront injectés ici -->
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

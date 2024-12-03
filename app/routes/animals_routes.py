@@ -110,6 +110,7 @@ def list():
         return render_template('list.html', animals=[], page=1, total_pages=0, query=query)
 
 
+
 @animals_routes.route('/admin', methods=['GET'])
 def admin_panel():
     """
@@ -121,6 +122,8 @@ def admin_panel():
     except Exception:
         flash("Erreur lors de la récupération des données. Veuillez réessayer plus tard.", "error")
         return render_template('admin.html', animals=[])
+
+
 
 
 @animals_routes.route('/delete/<int:animal_id>', methods=['POST'])
@@ -135,6 +138,8 @@ def delete_animal(animal_id):
     else:
         return {"status": "error", "message": result["message"]}, 400
     
+
+
 
 
 @animals_routes.route('/update/<int:animal_id>', methods=['GET', 'POST'])

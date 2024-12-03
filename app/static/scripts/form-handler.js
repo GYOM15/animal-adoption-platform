@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showError(e.target, "L'adresse est requise");
         } else if (!/^\d{1,10}\s[a-zA-Z\s]{3,}$/.test(value)) {
             showError(e.target, "L'adresse doit commencer par un numéro suivi de l'adresse");
-        } else if (parts.length < 2 || parts.length > 5) {
+        } else if (parts.length < 2 || parts.length > 8) {
             showError(e.target, "L'adresse doit contenir entre 2 et 5 mots");
         } else {
             clearError(e.target);

@@ -19,7 +19,7 @@ const validateAddress = (value) => {
   return /^\d{1,10}$/.test(streetNumber) && 
          /^[a-zA-Z\s]{3,}$/.test(streetWords) && 
          parts.length >= 2 && 
-         parts.length <= 5;
+         parts.length <= 8;
 };
 
 const validateCity = (value) => {
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Real-time validation for address
   inputs.street.addEventListener('input', (e) => {
     if (!validateAddress(e.target.value)) {
-      showError(e.target, "L'adresse doit commencer par un numéro suivi de 3 à 4 mots");
+      showError(e.target, "L'adresse doit commencer par un numéro suivi de 3 à 8 mots");
     } else {
       clearError(e.target);
     }
