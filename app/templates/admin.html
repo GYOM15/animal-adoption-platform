@@ -33,12 +33,12 @@
     <tbody>
         {% for animal in animals %}
         <tr>
-            <td>{{ animal['id'] }}</td>
-            <td>{{ animal['nom'] }}</td>
-            <td>{{ animal['espece'] }}</td>
-            <td>{{ animal['race'] }}</td>
-            <td>{{ animal['age'] }}</td>
-            <td>{{ animal['email'] }}</td>
+            <td data-label="ID">{{ animal['id'] }}</td>
+            <td data-label="Nom">{{ animal['nom'] }}</td>
+            <td data-label="Espèce">{{ animal['espece'] }}</td>
+            <td data-label="Race">{{ animal['race'] }}</td>
+            <td data-label="Âge">{{ animal['age'] }}</td>
+            <td data-label="Email">{{ animal['email'] }}</td>
             <td>
                 <button class="action-btn" data-id="{{ animal['id'] }}" onclick="toggleActions(this)">Actions</button>
                 <div id="actions-{{ animal['id'] }}" class="actions-menu">

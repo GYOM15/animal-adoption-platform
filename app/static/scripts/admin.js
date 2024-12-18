@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (row) row.remove();
                         document.getElementById("confirmation-popup").style.display = "none";
                         selectedAnimalId = null;
+                        window.location.reload();
                     } else {
                         alert("Erreur : " + data.message);
                     }

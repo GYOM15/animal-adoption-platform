@@ -35,9 +35,9 @@
 
 <!-- Résultats de la liste -->
 {% if animals %}
-<div class="pets-grid">
+<div class="pets-grid row">
     {% for animal in animals %}
-    <div class="pet-card" 
+    <div class="pet-card col-md-12 col-xs-12 col-sm-12" 
          data-espece="{{ animal.espece }}" 
          data-race="{{ animal.race }}" 
          data-age="{{ animal.age }}" 
@@ -45,7 +45,7 @@
          data-adresse="{{ animal.adresse }}">
         <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="{{ animal.nom }}">
         <h3>{{ animal.nom }}</h3>
-        <p>Description : {{ animal.description[:100] }}...</p>
+        <p>Description : {{ animal.description[:200] }}...</p>
         <button class="contact-button">voir les details...</button>
     </div>
     {% endfor %}

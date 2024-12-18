@@ -403,29 +403,6 @@ button[type="submit"]:hover {
     box-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
 }
 
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    .nav-links a {
-        margin: 0;
-    }
-
-    .pets-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
-}
-
 /* Section Mission et Valeurs */
 .mission-section {
     display: flex;
@@ -1023,4 +1000,221 @@ CART
 .close-modal:hover {
     background-color: rgba(0, 255, 156, 0.1);
     transform: scale(1.1);
+}
+
+
+/************************************************************
+*                     Responsive Design Styles                    *
+************************************************************/
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .nav-links a {
+        margin: 0;
+    }
+
+    .hero{
+        height: 80vh;
+    }
+
+    .mission-section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pets-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px));
+    } 
+
+    .pet-card{
+        width: 100%;
+    }
+
+    .community-cards{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+/*************************************************
+*                     POUR LES TRÈS PETITS ECRANS                    *
+*************************************************/
+
+@media(max-width : 397px){
+    .hero{
+        height: 70vh;
+    }
+    .community-section {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .mission-content,
+    .mission-image,
+    .footer-container {
+        width: 100%;
+    }
+
+    .mission-image img {
+        width: 100%; 
+        height: auto;
+    }
+
+    .search-container,  
+    .hero-buttons, 
+    .footer-section .social-links
+    {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero h1{
+        font-size: 2.3rem;
+    }
+
+    .hero p{
+        font-size: 18px;
+    }
+
+    .hero-buttons a{
+        font-size: 13px;
+    }
+
+}
+
+@media(min-width : 409px) and (max-width : 500px){
+    .community-section .community-cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: auto;
+    }
+
+    .community-card{
+        max-width: 432px;
+    }
+}
+
+@media (min-width: 769px) and (max-width : 902px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .pets-grid {
+       margin-left: 35px;
+    } 
+
+    
+    /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem; */
+
+    .hero{
+        height: 70vh;
+    }
+
+    .footer-section .social-links{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width : 895px) and (max-width : 987px){
+    .footer-section .social-links{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media(min-width : 1681px) and (max-width : 3024px){
+    .hero{
+        height: 60vh;
+    }
+}
+
+/***************************************
+
+*   RESPONSIVE DESIGN POUR LA TABLE D'ADMINISTRATION
+
+****************************************/
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody, tr, td {
+        display: block;
+        width: 100%;
+    }
+
+    tbody tr {
+        margin-bottom: 1rem;
+    }
+
+    tbody td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 2px solid var(--metallic-gray); 
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: bold;
+        color: var(--cyberpunk-green);
+    }
+
+    tbody td:last-child {
+        text-align: center;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    table {
+        margin: 1rem 0;
+    }
+
+    tbody td {
+        font-size: 0.875rem;
+    }
 }

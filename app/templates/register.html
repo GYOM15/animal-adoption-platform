@@ -21,37 +21,37 @@
     <form method="post"  class="adoption-form" action="{{ url_for('animals_routes.register') }}">
         <div class="form-group">
             <label for="name">Nom de l'animal*</label>
-            <input type="text" id="name" name="nom" required>
+            <input type="text" value="{{ form.nom if form.nom else '' }}" id="name" name="nom" required>
             <span class="error" id="name-error"></span>
         </div>
 
         <div class="form-group">
             <label for="species">Espèce*</label>
-            <input type="text" id="species" name="espece" required>
+            <input type="text" value="{{ form.espece if form.espece else '' }}" id="species" name="espece" required>
             <span class="error" id="species-error"></span>
         </div>
 
         <div class="form-group">
             <label for="breed">Race*</label>
-            <input type="text" id="breed" name="race" required>
+            <input type="text" id="breed"  value="{{ form.race if form.race else '' }}" name="race" required>
             <span class="error" id="breed-error"></span>
         </div>
 
         <div class="form-group">
             <label for="age">Âge*</label>
-            <input type="number" id="age" name="age" min="0" max="30" required>
+            <input type="number" value="{{ form.age if form.age else '' }}" id="age" name="age" min="0" max="30" required>
             <span class="error" id="age-error"></span>
         </div>
 
         <div class="form-group">
             <label for="description">Description*</label>
-            <textarea id="description" name="description" required></textarea>
+            <textarea id="description" name="description" required>{{ form.description if form.description else '' }}</textarea>
             <span class="error" id="description-error"></span>
         </div>
 
         <div class="form-group">
             <label for="ownerEmail">Courriel du propriétaire*</label>
-            <input type="email" id="ownerEmail" name="email" required>
+            <input type="email" id="ownerEmail" name="email" value="{{ form.email if form.email else '' }}" required>
             <span class="error" id="ownerEmail-error"></span>
             {% if errors.email %}
             <span class="error" id="ownerEmail-error">{{ errors.email }}</span>
@@ -60,19 +60,19 @@
 
         <div class="form-group">
             <label for="street">Adresse civique*</label>
-            <input type="text" id="street" name="adresse" required>
+            <input type="text" id="street" name="adresse" value="{{ form.adresse if form.adresse else '' }}" required>
             <span class="error" id="street-error"></span>
         </div>
 
         <div class="form-group">
             <label for="city">Ville*</label>
-            <input type="text" id="city" name="ville" required>
+            <input type="text" id="city" value="{{ form.ville if form.ville else '' }}"  name="ville" required>
             <span class="error" id="city-error"></span>
         </div>
 
         <div class="form-group">
             <label for="postalCode">Code postal*</label>
-            <input type="text" id="postalCode" name="code_postal" placeholder="A1A 1A1" required>
+            <input type="text" id="postalCode"  value="{{ form.code_postal if form.code_postal else '' }}" name="code_postal" placeholder="A1A 1A1" required>
             <span class="error" id="postalCode-error"></span>
         </div>
         

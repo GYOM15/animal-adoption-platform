@@ -1,5 +1,6 @@
 import logging
-from flask import Flask, render_template, request
+from flask import Flask
+from flask import render_template, request
 from app.database import Database
 from app.routes.animals_routes import animals_routes
 from app.models import Animals
@@ -13,7 +14,8 @@ logging.basicConfig(
 
 def create_app():
     """
-    Initialise l'application Flask et configure les routes, logs et base de données.
+    Initialise l'application Flask et configure les routes,
+    logs et base de données.
     """
     app = Flask(__name__, template_folder='templates')
     app.config.from_object('config.Config')
@@ -44,7 +46,7 @@ def create_app():
         try:
             # Récupérer les paramètres de la requête pour la pagination
             page = request.args.get('page', 1, type=int)  # Par défaut : page 1
-            per_page = request.args.get('per_page', 3, type=int)  # Par défaut : 4 éléments par page
+            per_page = request.args.get('per_page', 6, type=int)  # Par défaut : 4 éléments par page
 
             # Récupérer les animaux paginés
             animals = Animals.get_paginated_animals(page=page, per_page=per_page)

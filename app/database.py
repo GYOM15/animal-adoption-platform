@@ -11,34 +11,32 @@ import logging
 class Database:
 
     DATABASE = 'database.db'
-
+    
     @staticmethod
     def get_connection():
         """
-        Retourne une connexion SQLite stockée dans Flask's g pour la requête courante.
+        Retourne une connexion SQLite stockée dans Flask's 
+        g pour la requête courante.
         """
         if 'db' not in g:
             g.db = sqlite3.connect(Database.DATABASE)
             g.db.row_factory = sqlite3.Row
         return g.db
 
-
-    """
-    Ferme la connexion SQLite à la fin de la requête.
-    """
     @staticmethod
     def close_connection():
- 
+        """
+        Ferme la connexion SQLite à la fin de la requête.
+        """
         db = g.pop('db', None)
         if db is not None:
             db.close()
 
-
-    """
-    Vérifie si une table existe dans la base de données.
-    """
     @staticmethod
     def table_exists(table_name):
+        """
+        Vérifie si une table existe dans la base de données.
+        """
         try:
             db = Database.get_connection()
             cursor = db.cursor()
@@ -50,13 +48,12 @@ class Database:
         finally:
             Database.close_connection()
     
-    
-    """
-    Initialise les tables nécessaires uniquement si elles n'existent pas.
-    """
     @staticmethod
     def initialize_tables():
-
+        """
+        Initialise les tables nécessaires uniquement
+        si elles n'existent pas.
+        """
         if not Database.table_exists("animals"):  # Vérifie si la table existe
             try:
                 db = Database.get_connection()

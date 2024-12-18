@@ -2,10 +2,10 @@ from app.database import Database
 import logging
 
 class Animals:
-    """
-    Classe pour gérer les opérations liées aux animaux dans la base de données.
-    """
     def __init__(self, id, nom, espece, race, age, description, email, adresse, ville, code_postal):
+        """
+        Classe pour gérer les opérations liées aux animaux dans la base de données.
+        """
         self.id = id
         self.nom = nom
         self.espece = espece
@@ -17,12 +17,11 @@ class Animals:
         self.ville = ville
         self.code_postal = code_postal
 
-
-    """
-        Méthode statique pour ajouter un nouvel animal dans la base de données.
-    """
     @staticmethod
     def create(nom, espece, race, age, description, email, adresse, ville, code_postal):
+        """
+        Méthode statique pour ajouter un nouvel animal dans la base de données.
+        """
         db = Database.get_connection()
         cursor = db.cursor()
         try:
@@ -40,14 +39,12 @@ class Animals:
         finally:
             cursor.close()
 
-    
-
-    """
-        Méthode statique pour rechercher un animal par son email.
-        Retourne l'animal si trouvé, sinon None.
-    """
     @staticmethod
     def find_by_email(email):
+        """
+        Méthode statique pour rechercher un animal par son email.
+        Retourne l'animal si trouvé, sinon None.
+        """
         db = Database.get_connection()
         cursor = db.cursor()
         try:
@@ -62,10 +59,10 @@ class Animals:
         finally:
             cursor.close()
 
-
-    """Retrouver un animal par son id"""
     @staticmethod
     def find_by_id(animal_id):
+        """Retrouver un animal par son id"""
+        
         """
         Récupère un animal par son ID.
         """
@@ -83,13 +80,12 @@ class Animals:
         finally:
             cursor.close()
 
-
-    """
-        Méthode statique pour récupérer tous les animaux dans la base de données
-        et les afficher dans la console. Retourne aussi les données.
-    """
     @staticmethod
     def display_all():
+        """
+        Méthode statique pour récupérer tous les animaux dans la base de données
+        et les afficher dans la console. Retourne aussi les données.
+        """
         db = Database.get_connection()
         cursor = db.cursor()
         try:
@@ -103,11 +99,11 @@ class Animals:
         finally:
             cursor.close()
     
-    """
-        Méthode statique pour supprimer un animal par son ID.
-    """
     @staticmethod
     def delete_by_id(animal_id):
+        """
+        Méthode statique pour supprimer un animal par son ID.
+        """
         db = Database.get_connection()
         cursor = db.cursor()
         try:
@@ -122,12 +118,11 @@ class Animals:
         finally:
             cursor.close()
 
-
-    """
-        Méthode statique pour mettre à jour les informations d'un animal.
-    """
     @staticmethod
     def update(animal_id, nom, espece, race, age, description, email, adresse, ville, code_postal):
+        """
+        Méthode statique pour mettre à jour les informations d'un animal.
+        """
         db = Database.get_connection()
         cursor = db.cursor()
         try:
@@ -149,12 +144,11 @@ class Animals:
         finally:
             cursor.close()
         
-    
-    """
-        Compte le nombre total d'animaux dans la base de données.
-    """
     @staticmethod
     def count_animals():
+        """
+        Compte le nombre total d'animaux dans la base de données.
+        """
         db = Database.get_connection()
         cursor = db.cursor()
         try:
@@ -167,12 +161,11 @@ class Animals:
         finally:
             cursor.close()
     
-    
-    """
-        Récupère une liste d'animaux avec pagination.
-    """
     @staticmethod
     def get_paginated_animals(page, per_page):
+        """
+        Récupère une liste d'animaux avec pagination.
+        """
         db = Database.get_connection()
         cursor = db.cursor()
         try:
@@ -186,12 +179,11 @@ class Animals:
         finally:
             cursor.close()
             
-    
-    """
-        Recherche des animaux avec pagination en fonction d'un mot-clé.
-    """
     @staticmethod
     def search_paginated(query, page, per_page):
+        """
+        Recherche des animaux avec pagination en fonction d'un mot-clé.
+        """
         db = Database.get_connection()
         cursor = db.cursor()
         try:
@@ -214,12 +206,11 @@ class Animals:
         finally:
             cursor.close()
             
-    
-    """
-        Compte le nombre total de résultats pour une recherche donnée.
-    """
     @staticmethod
     def count_search_results(query):
+        """
+        Compte le nombre total de résultats pour une recherche donnée.
+        """
         db = Database.get_connection()
         cursor = db.cursor()
         try:

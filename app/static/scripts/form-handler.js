@@ -66,13 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Real-time validation for description
     inputs.description.addEventListener('input', (e) => {
-        const value = e.target.value.trim();
-        if (!value) {
-            showError(e.target, "La description est requise");
+        let value = e.target.value;
+
+        // Prevent writing more than 400 characters
+        if (value.length > 400) {
+            e.target.value = value.slice(0, 400); // Truncate extra characters
+            showError(e.target, "La description est limitée à 400 caractères");
+        } else if (/[*<>;{}[\]"`]/.test(value)) { 
+            // Check for special characters often used in XSS or SQL Injection
+            showError(e.target, "La description contient des caractères interdits");
         } else {
             clearError(e.target);
         }
     });
+
 
     // Real-time validation for email
     inputs.ownerEmail.addEventListener('input', (e) => {
@@ -132,28 +139,4 @@ document.addEventListener('DOMContentLoaded', () => {
             clearError(e.target);
         }
     });
-
-    // Form submission
-    // form.addEventListener('submit', (e) => {
-    //     e.preventDefault();
-    //     let isValid = true;
-    //     let hasErrors = false;
-
-    //     // Check for errors
-    //     document.querySelectorAll('.error').forEach(error => {
-    //         if (error.textContent) {
-    //             hasErrors = true;
-    //         }
-    //     });
-
-    //     // Check required fields
-    //     Object.values(inputs).forEach(input => {
-    //         if (!input.value.trim()) {
-    //             showError(input, "Ce champ est requis");
-    //             isValid = false;
-    //         }
-    //     });
-
-        
-    // });
 });

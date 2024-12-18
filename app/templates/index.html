@@ -20,13 +20,18 @@
 <h2 class="home-title">Animaux récents</h2>
 
 {% if animals %}
-<div class="pets-grid">
+<div class="pets-grid row">
     {% for animal in animals %}
-    <div class="pet-card">
+    <div class="pet-card"
+        data-espece="{{ animal.espece }}" 
+        data-race="{{ animal.race }}" 
+        data-age="{{ animal.age }}" 
+        data-email="{{ animal.email }}" 
+        data-adresse="{{ animal.adresse }}">
         <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba" alt="Luna, un chat Siamois">
         <div>
             <h3>{{animal.nom}}</h3>
-            <p>{{ animal.description[:100] }}...</p>
+            <p>{{ animal.description[:200] }}...</p>
         </div>
         <button class="contact-button">Contacter le propriétaire</button>
     </div>
@@ -35,6 +40,17 @@
 {% else %}
 <p>Aucun animal trouvé.</p>
 {% endif %}
+
+<!-- Modal Structure -->
+<div id="modal-container" class="modal-container">
+    <div class="modal-content">
+        <button class="close-modal">×</button>
+        <h2 id="modal-title">Détails de l'Animal</h2>
+        <div id="modal-details">
+            <!-- Les détails de l'animal seront injectés ici -->
+        </div>
+    </div>
+</div>
 
 <!-- Section Mission et Valeurs -->
 <section class="mission-section">

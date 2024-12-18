@@ -5,7 +5,6 @@ from app.models import Animals
 class AnimalsService:
     """
     Service pour gérer les opérations métier liées aux animaux.
-    
     """
     EMAIL_REGEX = r"[^@]+@[^@]+\.[^@]+"
 
@@ -70,9 +69,6 @@ class AnimalsService:
             logging.exception(f"Erreur lors de l'enregistrement de l'animal : {str(e)}")
             return {"status": "error", "message": AnimalsService.ERROR_MESSAGES["internal_error"]}
 
-
-
-
     @staticmethod
     def get_animal_by_id(animal_id):
         """Récupère les détails d'un animal par son ID."""
@@ -84,7 +80,6 @@ class AnimalsService:
         except Exception:
             logging.error(f"Erreur lors de la récupération de l'animal ID {animal_id}")
             return {"status": "error", "message": AnimalsService.ERROR_MESSAGES["internal_error"]}
-
 
     @staticmethod
     def update_animal(animal_id, form_data):
@@ -108,8 +103,6 @@ class AnimalsService:
             logging.error(f"Erreur lors de la mise à jour de l'animal ID {animal_id}: {str(e)}")
             return {"status": "error", "message": AnimalsService.ERROR_MESSAGES["internal_error"]}
 
-
-
     @staticmethod
     def delete_animal(animal_id):
         """Supprime un animal par son ID."""
@@ -123,8 +116,6 @@ class AnimalsService:
             logging.error(f"Erreur lors de la suppression de l'animal ID {animal_id}")
             return {"status": "error", "message": AnimalsService.ERROR_MESSAGES["internal_error"]}
 
-
-
     @staticmethod
     def get_paginated_animals(page, per_page):
         """Récupère une liste paginée d'animaux."""
@@ -134,8 +125,6 @@ class AnimalsService:
         except Exception:
             logging.error("Erreur lors de la récupération des animaux paginés.")
             return []
-
-
 
     @staticmethod
     def search_paginated(query, page, per_page):
@@ -147,8 +136,6 @@ class AnimalsService:
             logging.error("Erreur lors de la recherche paginée.")
             return []
 
-
-
     @staticmethod
     def count_animals():
         """Compte le nombre total d'animaux."""
@@ -158,8 +145,6 @@ class AnimalsService:
             logging.error("Erreur lors du comptage des animaux.")
             return 0
 
-
-
     @staticmethod
     def count_search_results(query):
         """Compte le nombre total de résultats pour une recherche donnée."""
@@ -168,7 +153,6 @@ class AnimalsService:
         except Exception:
             logging.error("Erreur lors du comptage des résultats de recherche.")
             return 0
-    
     
     @staticmethod
     def display_all():
