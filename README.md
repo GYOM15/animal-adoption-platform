@@ -18,21 +18,28 @@ Ce projet est une application web développée dans le cadre du TP3 du cours INF
 
 ## Screenshots
 
-<div align="center">
-
-### Page d'accueil
-![Page d'accueil](images/homepage.png)
-
-### Liste des animaux
-![Liste des animaux](images/animal-list.png)
-
-### Formulaire d'adoption
-![Formulaire d'adoption](images/adoption-form.png)
-
-### Panneau d'administration
-![images/adoption-form.png](images/admin-pannel.png)
-
-</div>
+<table align="center">
+<tr>
+    <td align="center">
+    <strong>Page d'accueil</strong><br>
+    <img src="images/adoption-form.png" width="400px" alt="Page d'accueil">
+    </td>
+    <td align="center">
+    <strong>Liste des animaux</strong><br>
+    <img src="images/admin-pannel.png" width="400px" alt="Liste des animaux">
+    </td>
+</tr>
+<tr>
+    <td align="center">
+    <strong>Formulaire d'adoption</strong><br>
+    <img src="images/homepage.png" width="400px" alt="Formulaire d'adoption">
+    </td>
+    <td align="center">
+    <strong>Panneau d'administration</strong><br>
+    <img src="images/animal-list.png" width="400px" alt="Panneau d'administration">
+    </td>
+</tr>
+</table>
 
 ---
 
