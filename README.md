@@ -2,6 +2,17 @@
 
 Ce projet est une application web développée dans le cadre du TP3 du cours INF3190 – Introduction à la programmation web (Automne 2024). L'application permet de gérer l'adoption d'animaux de compagnie. Les utilisateurs peuvent consulter les animaux disponibles, rechercher un animal, et mettre un animal en adoption via un formulaire sécurisé.
 
+## Table des matières
+- [Fonctionnalités](#fonctionnalités)
+- [Structure de la Base de Données](#structure-de-la-base-de-données)
+- [Validations](#validations)
+- [Technologies Utilisées](#technologies-utilisées)
+- [Structure du Projet](#structure-du-projet-inf3190flask)
+- [Instructions d'Installation](#instructions-dinstallation)
+- [Fonctionnalités Clés](#fonctionnalités-clés)
+- [Règles Spécifiques](#règles-spécifiques)
+- [Licence]()
+
 ---
 
 ## **Fonctionnalités**
@@ -124,11 +135,11 @@ INF3190FLASK/
 
 4. **Lancer l'Application :**
    ```bash
-   python run.py
+   env/bin/python app.py
    ```
    L'application sera accessible à l'adresse [http://127.0.0.1:5000](http://127.0.0.1:5000).
 
-## ⚠️ **Problème : Le Module Flask n'est pas Reconnu ?**
+## ⚠️ **Problème avec l'execution via l'IDE : " Le Module Flask n'est pas Reconnu ?"**
 
 Si vous rencontrez une erreur indiquant que le module Flask n'est pas reconnu dans votre projet, suivez ces étapes pour résoudre le problème en configurant l'interpréteur Python correct :
 
@@ -188,6 +199,13 @@ Après avoir configuré l'interpréteur, redémarrez Visual Studio Code pour app
 
 ---
 
+## **Licence**
+- Ce projet a été initialement développé dans le cadre du TP3 du cours **INF3190 – Introduction à la programmation web (Automne 2024)**.
+- Le code source est disponible sous la licence MIT, ce qui signifie que vous pouvez l'utiliser, le modifier et le distribuer librement, sous réserve des conditions suivantes :
+- La notice de copyright et la permission doivent être incluses dans toutes les copies ou portions substantielles du logiciel
+- Le logiciel est fourni "tel quel", sans garantie d'aucune sorte
+- Pour plus de détails, consultez le fichier [LICENSE](LICENSE) dans le dépôt.
+
 ### **Exclusion des Dossiers `__pycache__`**
 
 Pour éviter de pousser accidentellement les dossiers `__pycache__` dans votre dépôt, ces derniers doivent être exclus via le fichier `.gitignore`. Voici une commande pour supprimer tous les dossiers `__pycache__` de votre projet :
@@ -208,9 +226,5 @@ for /d /r . %d in (__pycache__) do @if exist "%d" rd /s /q "%d"
 
 Ces commandes permettent de supprimer tous les dossiers `__pycache__` de votre projet avant de faire un commit ou un push.
 
----
-## **Licence Académique**
-   - Ce projet a été réalisé dans le cadre du TP3 du cours **INF3190 – Introduction à la programmation web (Automne 2024)**. Il est destiné à un usage académique et pédagogique uniquement.
-   - Toute réutilisation ou redistribution doit être conforme aux règlements académiques en vigueur. 
 ---
 
