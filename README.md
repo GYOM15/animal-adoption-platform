@@ -21,16 +21,16 @@ Ce projet est une application web développée dans le cadre du TP3 du cours INF
 <div align="center">
 
 ### Page d'accueil
-![Page d'accueil](images/Capture%20d%27écran%2C%20le%202025-01-25%20à%2013.56.29.png)
+![Page d'accueil](images/homepage.png)
 
 ### Liste des animaux
-![Liste des animaux](images/Capture%20d%27écran%2C%20le%202025-01-25%20à%2013.57.02.png)
+![Liste des animaux](images/animal-list.png)
 
 ### Formulaire d'adoption
-![Formulaire d'adoption](images/Capture%20d%27écran%2C%20le%202025-01-25%20à%2013.57.11.png)
+![Formulaire d'adoption](images/adoption-form.png)
 
-### Détails de l'animal
-![Détails de l'animal](images/Capture%20d%27écran%2C%20le%202025-01-25%20à%2013.57.21.png)
+### Panneau d'administration
+![images/adoption-form.png](images/admin-pannel.png)
 
 </div>
 
@@ -107,8 +107,7 @@ La base de données SQLite contient une table `animals` avec les colonnes suivan
 
 ---
 
-# Structure du Projet INF3190FLASK
-
+# Structure du Projet
 ```bash
 INF3190FLASK/
 ├── .venv/                   # Environnement virtuel Python
@@ -221,7 +220,6 @@ Après avoir configuré l'interpréteur, redémarrez Visual Studio Code pour app
 ---
 
 ## **Licence**
-- Ce projet a été initialement développé dans le cadre du TP3 du cours **INF3190 – Introduction à la programmation web (Automne 2024)**.
 - Le code source est disponible sous la licence MIT, ce qui signifie que vous pouvez l'utiliser, le modifier et le distribuer librement, sous réserve des conditions suivantes :
 - La notice de copyright et la permission doivent être incluses dans toutes les copies ou portions substantielles du logiciel
 - Le logiciel est fourni "tel quel", sans garantie d'aucune sorte
