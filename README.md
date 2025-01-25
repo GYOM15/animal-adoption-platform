@@ -3,7 +3,6 @@
 Ce projet est une application web développée dans le cadre du TP3 du cours INF3190 – Introduction à la programmation web (Automne 2024). L'application permet de gérer l'adoption d'animaux de compagnie. Les utilisateurs peuvent consulter les animaux disponibles, rechercher un animal, et mettre un animal en adoption via un formulaire sécurisé.
 
 ## Table des matières
-- [Screenshots](#screenshots)
 - [Fonctionnalités](#fonctionnalités)
 - [Structure de la Base de Données](#structure-de-la-base-de-données)
 - [Validations](#validations)
@@ -154,6 +153,7 @@ INF3190FLASK/
    python -m venv env
    source env/bin/activate   # Sur Windows : env\Scripts\activate
    ```
+**⚠️ Remarque** : Le fichier .env fourni est une esquisse illustrative, conçu pour cet exemple de cas d'utilisation. Assurez-vous d'utiliser vos propres valeurs pour les clés sensibles et de les sécuriser correctement en environnement de production.
 
 3. **Installer les Dépendances :**
    ```bash
