@@ -3,6 +3,7 @@
 Ce projet est une application web développée dans le cadre du TP3 du cours INF3190 – Introduction à la programmation web (Automne 2024). L'application permet de gérer l'adoption d'animaux de compagnie. Les utilisateurs peuvent consulter les animaux disponibles, rechercher un animal, et mettre un animal en adoption via un formulaire sécurisé.
 
 ## Table des matières
+- [Screenshots](#screenshots)
 - [Fonctionnalités](#fonctionnalités)
 - [Structure de la Base de Données](#structure-de-la-base-de-données)
 - [Validations](#validations)
@@ -12,6 +13,26 @@ Ce projet est une application web développée dans le cadre du TP3 du cours INF
 - [Fonctionnalités Clés](#fonctionnalités-clés)
 - [Règles Spécifiques](#règles-spécifiques)
 - [Licence]()
+
+---
+
+## Screenshots
+
+<div align="center">
+
+### Page d'accueil
+![Page d'accueil](images/Capture%20d%27écran%2C%20le%202025-01-25%20à%2013.56.29.png)
+
+### Liste des animaux
+![Liste des animaux](images/Capture%20d%27écran%2C%20le%202025-01-25%20à%2013.57.02.png)
+
+### Formulaire d'adoption
+![Formulaire d'adoption](images/Capture%20d%27écran%2C%20le%202025-01-25%20à%2013.57.11.png)
+
+### Détails de l'animal
+![Détails de l'animal](images/Capture%20d%27écran%2C%20le%202025-01-25%20à%2013.57.21.png)
+
+</div>
 
 ---
 
